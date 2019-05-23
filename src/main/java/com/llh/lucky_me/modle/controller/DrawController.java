@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @Slf4j
@@ -30,7 +31,7 @@ public class DrawController {
 
     @ApiOperation(value = "抽奖")
     @RequestMapping(value = "/draw", method = {RequestMethod.GET, RequestMethod.POST})
-    public ResponseWrapper drawPrize(@RequestBody DrawDTO drawDTO) {
+    public ResponseWrapper drawPrize(@RequestBody DrawDTO drawDTO, MultipartFile file) {
         log.info("info:prizeId:{}",drawDTO.getPrizeId());
         log.error("error:prizeId:{}",drawDTO.getPrizeId());
         PrizeVO vo = new PrizeVO();
