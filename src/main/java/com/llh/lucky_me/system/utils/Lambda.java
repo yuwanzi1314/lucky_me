@@ -20,7 +20,6 @@ public class Lambda {
         Stream<String> stream = Stream.generate(() -> "user").limit(20).skip(3);
         stream.forEach(System.out::println);
 
-        // fork/join
         List<String> wordList = Arrays.asList("a", "e", "c", "d", "b");
         List<String> output = wordList.stream().
                 map(String::toUpperCase).sorted().

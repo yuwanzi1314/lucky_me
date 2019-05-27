@@ -3,6 +3,7 @@ package com.llh.lucky_me.modle.controller;
 import com.llh.lucky_me.modle.bean.ResponseWrapper;
 import com.llh.lucky_me.modle.bean.dto.DrawDTO;
 import com.llh.lucky_me.modle.bean.vo.PrizeVO;
+import com.llh.lucky_me.modle.component.example.BoundedHashSet;
 import com.llh.lucky_me.system.utils.RedisUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -37,6 +41,7 @@ public class DrawController {
         PrizeVO vo = new PrizeVO();
         vo.setPrizeCode("iphone");
         redis.set("prize",drawDTO.getPrizeId());
+        List<String> alist = new ArrayList<>();
         //mongoTemplate.save("prize","drawDTO.getPrizeId()");
 
         return ResponseWrapper.success("success",vo);
